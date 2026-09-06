@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Devices - WiFi Monitor</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <div class="app">
+
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    📡
+                </div>
+
+                <div>
+
+                    <h2>
+                        WiFi Monitor
+                    </h2>
+
+                    <span>
+                        Network Dashboard
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <nav>
+
+                <a
+                    href="/"
+                    class="nav-item">
+
+                    <span>📊</span>
+
+                    Dashboard
+
+                </a>
+
+
+                <a
+                    href="/devices.html"
+                    class="nav-item active">
+
+                    <span>💻</span>
+
+                    Devices
+
+                </a>
+
+
+                <a
+                    href="/history.html"
+                    class="nav-item">
+
+                    <span>📜</span>
+
+                    History
+
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="safe-box">
+
+                    <span>🛡️</span>
+
+                    <div>
+
+                        <strong>
+                            Safe Mode
+                        </strong>
+
+                        <small>
+                            Read-only monitoring
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <main class="main">
+
+
+            <header class="header">
+
+                <div>
+
+                    <p class="welcome">
+                        LOCAL NETWORK
+                    </p>
+
+                    <h1>
+                        Detected Devices
+                    </h1>
+
+                    <p class="subtitle">
+                        Read-only information detected by your computer.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="refreshButton"
+                    class="refresh-button">
+
+                    🔄 Refresh
+
+                </button>
+
+            </header>
+
+
+            <section class="search-panel">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search IP or MAC address...">
+
+            </section>
+
+
+            <section class="device-stats">
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        💻
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Devices Detected
+                        </p>
+
+                        <h2 id="totalDevices">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🛡️
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Scan Mode
+                        </p>
+
+                        <h2>
+                            Safe
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        📡
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Detection Method
+                        </p>
+
+                        <h2 class="small-text">
+                            ARP Table
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="panel devices-table-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            Network Devices
+                        </h2>
+
+                        <p>
+                            Information already visible to your computer.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Device</th>
+                                <th>IP Address</th>
+                                <th>MAC Address</th>
+                                <th>Type</th>
+                                <th>Status</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="devicesTableBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="5"
+                                    class="loading-cell">
+
+                                    Loading devices...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="/js/devices.js"></script>
+
+</body>
+
+</html>

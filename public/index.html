@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>WiFi Network Monitor</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <div class="app">
+
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    📡
+                </div>
+
+                <div>
+
+                    <h2>
+                        WiFi Monitor
+                    </h2>
+
+                    <span>
+                        Network Dashboard
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <nav>
+
+                <a
+                    href="/"
+                    class="nav-item active">
+
+                    <span>📊</span>
+
+                    Dashboard
+
+                </a>
+
+
+                <a
+                    href="/devices.html"
+                    class="nav-item">
+
+                    <span>💻</span>
+
+                    Devices
+
+                </a>
+
+
+                <a
+                    href="/history.html"
+                    class="nav-item">
+
+                    <span>📜</span>
+
+                    History
+
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="safe-box">
+
+                    <span>🛡️</span>
+
+                    <div>
+
+                        <strong>
+                            Safe Mode
+                        </strong>
+
+                        <small>
+                            Read-only monitoring
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <main class="main">
+
+
+            <header class="header">
+
+                <div>
+
+                    <p class="welcome">
+                        NETWORK OVERVIEW
+                    </p>
+
+                    <h1>
+                        WiFi Dashboard
+                    </h1>
+
+                    <p class="subtitle">
+                        Monitor your local network safely.
+                    </p>
+
+                </div>
+
+
+                <div class="status">
+
+                    <span class="status-dot"></span>
+
+                    <span id="serverStatus">
+                        Checking...
+                    </span>
+
+                </div>
+
+            </header>
+
+
+            <section class="stats">
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        📡
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Network Status
+                        </p>
+
+                        <h2 id="networkStatus">
+                            Checking...
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        💻
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Devices Detected
+                        </p>
+
+                        <h2 id="deviceCount">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🛡️
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Monitor Mode
+                        </p>
+
+                        <h2>
+                            Safe
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🔄
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Last Update
+                        </p>
+
+                        <h2 id="lastUpdate">
+                            Never
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="dashboard-grid">
+
+
+                <div class="panel chart-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                Network Activity
+                            </h2>
+
+                            <p>
+                                Devices detected over time
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-container">
+
+                        <canvas
+                            id="networkChart">
+                        </canvas>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel safety-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                🛡️ Safe Monitoring
+                            </h2>
+
+                            <p>
+                                Privacy-focused monitoring
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="safety-list">
+
+                        <div class="safety-item">
+
+                            <span>✓</span>
+
+                            Read-only monitoring
+
+                        </div>
+
+
+                        <div class="safety-item">
+
+                            <span>✓</span>
+
+                            No router changes
+
+                        </div>
+
+
+                        <div class="safety-item">
+
+                            <span>✓</span>
+
+                            No device blocking
+
+                        </div>
+
+
+                        <div class="safety-item">
+
+                            <span>✓</span>
+
+                            Local information only
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="panel devices-preview">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            Connected Devices
+                        </h2>
+
+                        <p>
+                            Devices detected by your computer
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="/devices.html"
+                        class="view-button">
+
+                        View All →
+
+                    </a>
+
+                </div>
+
+
+                <div
+                    id="deviceList"
+                    class="device-list">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            📡
+                        </div>
+
+                        <h3>
+                            Loading...
+                        </h3>
+
+                        <p>
+                            Reading safe local network information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>

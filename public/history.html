@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>History - WiFi Monitor</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">📡</div>
+
+                <div>
+                    <h2>WiFi Monitor</h2>
+                    <span>Network Dashboard</span>
+                </div>
+
+            </div>
+
+            <nav>
+
+                <a href="/" class="nav-item">
+                    <span>📊</span>
+                    Dashboard
+                </a>
+
+                <a href="/devices.html" class="nav-item">
+                    <span>💻</span>
+                    Devices
+                </a>
+
+                <a href="/history.html" class="nav-item active">
+                    <span>📜</span>
+                    History
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="safe-box">
+
+                    <span>🛡️</span>
+
+                    <div>
+                        <strong>Safe Mode</strong>
+                        <small>Read-only monitoring</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN -->
+        <main class="main">
+
+            <header class="header">
+
+                <div>
+
+                    <p class="welcome">
+                        DEVICE HISTORY
+                    </p>
+
+                    <h1>
+                        Previously Detected Devices
+                    </h1>
+
+                    <p class="subtitle">
+                        Devices previously seen by this computer.
+                    </p>
+
+                </div>
+
+                <button
+                    id="refreshHistoryButton"
+                    class="refresh-button">
+
+                    🔄 Refresh
+
+                </button>
+
+            </header>
+
+
+            <!-- STATS -->
+
+            <section class="device-stats">
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        📜
+                    </div>
+
+                    <div>
+
+                        <p>History Records</p>
+
+                        <h2 id="historyCount">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🛡️
+                    </div>
+
+                    <div>
+
+                        <p>Mode</p>
+
+                        <h2>
+                            Safe
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🔒
+                    </div>
+
+                    <div>
+
+                        <p>Storage</p>
+
+                        <h2 class="small-text">
+                            Local
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- HISTORY TABLE -->
+
+            <section class="panel devices-table-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>Device History</h2>
+
+                        <p>
+                            First and last detected times.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Device</th>
+
+                                <th>IP Address</th>
+
+                                <th>MAC Address</th>
+
+                                <th>First Seen</th>
+
+                                <th>Last Seen</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="historyTableBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="5"
+                                    class="loading-cell">
+
+                                    Loading history...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="/js/history.js"></script>
+
+</body>
+
+</html>
